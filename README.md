@@ -48,7 +48,7 @@ git checkout <branch_name>
 git diff
 
 ```
-
+what does bash mean? shuo can you explain to me thanks
 ## Contribution
 
 ## License
