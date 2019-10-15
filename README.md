@@ -47,7 +47,6 @@ git checkout <branch_name>
 git diff
 
 ```
-
 No quetions asked, okay?
 ## Contribution
 
