@@ -18,9 +18,9 @@ git status
 git add -A
 ```
 
-or you can choose which file you want to stage
+or you can choose which files you want to stage
 ```bash
-git stage <file_name>
+git add <file_name_1> <file_name_2> <file_name_3>
 ```
 
 3. Commit the changes you staged and write the commit message
@@ -36,6 +36,17 @@ git push
 or pull the latest changes in the remote (github)
 ```bash
 git pull
+```
+
+5. Change to another branch
+```bash
+git checkout <branch_name>
+```
+
+6. Other frequently used commands
+```bash
+git diff
+
 ```
 
 ## Contribution
