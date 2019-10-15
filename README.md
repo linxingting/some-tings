@@ -48,6 +48,7 @@ git diff
 
 ```
 
+No quetions asked, okay?
 ## Contribution
 
 ## License
