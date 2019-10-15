@@ -1,6 +1,5 @@
 # some-tings
 > 3 Tings and 1 Neng
----
 
 ## Installation
 
@@ -48,7 +47,7 @@ git checkout <branch_name>
 git diff
 
 ```
-what does bash mean? shuo can you explain to me thanks
+No quetions asked, okay?
 ## Contribution
 
 ## License
