@@ -1,7 +1,7 @@
 # some-tings
 > 3 Tings and 1 Neng
-> Brinaaa
 ---
+
 
 ## Installation
 
@@ -49,7 +49,7 @@ git checkout <branch_name>
 git diff
 
 ```
-
+No quetions asked, okay?
 ## Contribution
 
 ## License
