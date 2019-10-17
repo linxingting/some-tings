@@ -6,10 +6,18 @@
 
 #include "../include/helper.h"
 
+#define BASELINK_TO_CAMERA 2.2 // in [m]
+
 using std::cout;
 using std::endl;
 using std::max;
 using std::vector;
+
+class SensorFusion
+{
+
+}
+
 
 int main()
 {
@@ -29,7 +37,6 @@ int main()
     vector<double> current_x = {0, 2};
     vector<double> current_y = {0, 1};
     vector<double> current_yaw = {M_PI / 2, -M_PI / 2};
-    vector<double> l = {2, 2};
     vector<double> lidar_theta, camera_theta;
     vector<vector<double>> fused_obstacles;
 
@@ -39,8 +46,8 @@ int main()
     for (int i = 0; i < x.size(); i++)
     {
         // Compute lidar obstacles into camera polar coordinate
-        camera_x = current_x[i] + l[i] * cos(current_yaw[i]);
-        camera_y = current_y[i] + l[i] * sin(current_yaw[i]);
+        camera_x = current_x[i] + BASELINK_TO_CAMERA * cos(current_yaw[i]);
+        camera_y = current_y[i] + BASELINK_TO_CAMERA * sin(current_yaw[i]);
         r = sqrt(pow(x[i] - camera_x, 2) + pow(y[i] - camera_y, 2));
         radius.push_back(r);
         theta = atan2(y[i] - camera_y, x[i] - camera_x) - current_yaw[i];
@@ -88,16 +95,17 @@ int main()
     return 0;
 }
 
-vector<double> compute()
+vector<double> getPolarCoordinate(double ob_x, double ob_y, double car_x, double car_y, double car_yaw)
 {
     // Compute lidar obstacles into camera polar coordinate
-    camera_x = current_x[i] + l[i] * cos(current_yaw[i]);
-    camera_y = current_y[i] + l[i] * sin(current_yaw[i]);
-    r = sqrt(pow(x[i] - camera_x, 2) + pow(y[i] - camera_y, 2));
-    radius.push_back(r);
-    theta = atan2(y[i] - camera_y, x[i] - camera_x) - current_yaw[i];
-    lidar_theta.push_back(theta);
-
+    double camera_x = car_x + BASELINK_TO_CAMERA * cos(car_yaw);
+    double camera_y = car_y + BASELINK_TO_CAMERA * sin(car_yaw);
+    double r = sqrt(pow(ob_x - camera_x, 2) + pow(ob_y - camera_y, 2));
+    
+    double theta = atan2(ob_y - camera_y, ob_x - camera_x) - car_yaw;
+    
     cout << "camera_x: " << camera_x << ", camera_y: " << camera_y
          << ", r: " << r << ", theta: " << theta << endl;
+
+    return {r, theta};
 }
