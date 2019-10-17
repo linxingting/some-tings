@@ -1,10 +1,4 @@
-//#include <stdio.h>
-#include <iostream>
-#include <vector>
-#include <math.h>
-#include <algorithm>
 
-#include "../include/helper.h"
 
 #define BASELINK_TO_CAMERA 2.2 // in [m]
 
@@ -13,11 +7,42 @@ using std::endl;
 using std::max;
 using std::vector;
 
-class SensorFusion
+double Jump(double p)
 {
+    return p + 1;
+}
+
+double doSomething(double x, double y)
+{
+    double a;
+    print(a);
+    return x + y;
+}
+
+void Gym(double a,,dsfasfdsaf,sdaf,sdaf,saf,sagf,sa,g)
+{
+    xingting[a][v] = fhfsafjdsa;
+    fhfsafjdsaasfsafsadf
+    sagffsa
+    fused_obstaclesasfsaf
+    safaf
 
 }
 
+vector<double> getPolarCoordinate(double ob_x, double ob_y, double car_x, double car_y, double car_yaw)
+{
+    // Compute lidar obstacles into camera polar coordinate
+    double camera_x = car_x + BASELINK_TO_CAMERA * cos(car_yaw);
+    double camera_y = car_y + BASELINK_TO_CAMERA * sin(car_yaw);
+    double r = sqrt(pow(ob_x - camera_x, 2) + pow(ob_y - camera_y, 2));
+
+    double theta = atan2(ob_y - camera_y, ob_x - camera_x) - car_yaw;
+
+    cout << "camera_x: " << camera_x << ", camera_y: " << camera_y
+         << ", r: " << r << ", theta: " << theta << endl;
+
+    return {r, theta};
+}
 
 int main()
 {
@@ -93,19 +118,4 @@ int main()
     }
 
     return 0;
-}
-
-vector<double> getPolarCoordinate(double ob_x, double ob_y, double car_x, double car_y, double car_yaw)
-{
-    // Compute lidar obstacles into camera polar coordinate
-    double camera_x = car_x + BASELINK_TO_CAMERA * cos(car_yaw);
-    double camera_y = car_y + BASELINK_TO_CAMERA * sin(car_yaw);
-    double r = sqrt(pow(ob_x - camera_x, 2) + pow(ob_y - camera_y, 2));
-    
-    double theta = atan2(ob_y - camera_y, ob_x - camera_x) - car_yaw;
-    
-    cout << "camera_x: " << camera_x << ", camera_y: " << camera_y
-         << ", r: " << r << ", theta: " << theta << endl;
-
-    return {r, theta};
 }
