@@ -8,16 +8,16 @@
 #include <algorithm>
 
 
-
 class SensorFusion
 {
  public:
 
+
  private:
-  constexpr double pi() { return M_PI; }
-  double deg2rad(double angle){ return angle * pi() / 180; }
-  double rad2deg(double angle){ return angle / pi() * 180; }
-  vector<double> getPolarCoordinate(double ob_x, double ob_y, double car_x, double car_y, double car_yaw)
+  constexpr double pi();
+  double deg2rad(double angle);
+  double rad2deg(double angle);
+  vector<double> getPolarCoordinate(double ob_x, double ob_y, double car_x, double car_y, double car_yaw);
 
 }
 

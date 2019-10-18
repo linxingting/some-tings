@@ -1,4 +1,4 @@
-
+#include "../include/sensor_fusion.h"
 
 #define BASELINK_TO_CAMERA 2.2 // in [m]
 
@@ -7,29 +7,14 @@ using std::endl;
 using std::max;
 using std::vector;
 
-double Jump(double p)
-{
-    return p + 1;
+constexpr double pi() { return M_PI; }
+double deg2rad(double angle) 
+{ 
+    return angle * pi() / 180; 
 }
+double rad2deg(double angle) { return angle / pi() * 180; }
 
-double doSomething(double x, double y)
-{
-    double a;
-    print(a);
-    return x + y;
-}
-
-void Gym(double a,,dsfasfdsaf,sdaf,sdaf,saf,sagf,sa,g)
-{
-    xingting[a][v] = fhfsafjdsa;
-    fhfsafjdsaasfsafsadf
-    sagffsa
-    fused_obstaclesasfsaf
-    safaf
-
-}
-
-vector<double> getPolarCoordinate(double ob_x, double ob_y, double car_x, double car_y, double car_yaw)
+vector<double> SensorFusion::getPolarCoordinate(double ob_x, double ob_y, double car_x, double car_y, double car_yaw)
 {
     // Compute lidar obstacles into camera polar coordinate
     double camera_x = car_x + BASELINK_TO_CAMERA * cos(car_yaw);
